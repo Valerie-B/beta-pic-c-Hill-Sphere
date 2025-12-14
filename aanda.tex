@@ -1,0 +1,119 @@
+%                                                                 aa.dem
+% AA vers. 9.1, LaTeX class for Astronomy & Astrophysics
+% demonstration file
+%                                                       (c) EDP Sciences
+%-----------------------------------------------------------------------
+%
+%\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[letter]{aa} % for the letters 
+%\documentclass[bibyear]{aa} % if the references are not structured 
+%                              according to the author-year natbib style
+
+%
+
+
+\documentclass{aa}  
+
+\newcommand\picb{$\beta$ Pic b}
+\newcommand\picc{$\beta$ Pic c}
+\newcommand\pic{$\beta$ Pic }
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage{subcaption}
+\newlength{\twosubht}
+\newsavebox{\twosubbox}
+\usepackage{lscape}
+%
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{dblfloatfix}
+
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{%
+        colorlinks,
+        breaklinks=true,
+        plainpages=false,%
+        citecolor=[rgb]{0,0.20,0.45},
+        linkcolor=[rgb]{0,0.20,0.45},
+        urlcolor=[rgb]{0,0.20,0.45},
+        bookmarksopen=true,%
+        bookmarksnumbered=false,%
+        bookmarksdepth=5%
+}
+
+\usepackage[nolist,nohyperlinks]{acronym}
+\newacro{bring}[BRING]{Beta Pictoris b Rings}
+\newacro{sphere}[SPHERE]{Spectro-Polarimetric High-contrast Exoplanet REsearch}
+
+%\usepackage[options]{hyperref}
+% To add links in your PDF file, use the package "hyperref"
+% with options according to your LaTeX or PDFLaTeX drivers.
+%
+\begin{document} 
+\authorrunning{Bakker et al.}
+\titlerunning{Hill sphere transit of Beta Pic c}
+  \title{The Hill sphere transits of Beta Pic c and a search for the 1981 event %
+  %: Direct Astrometric M-dwarf Measurements In Time
+  }
+
+   \author{V. Bakker
+          \inst{1}
+          \and
+        M. A. Kenworthy
+        \inst{2}
+        \and
+        Many Others
+        \inst{3}
+          }
+
+   \institute{Leiden Observatory, University of Leiden,
+   PO Box 9513, 2300 RA Leiden, The Netherlands\\
+   \email{kenworthy@strw.leidenuniv.nl}
+   \and 
+      Scottish Universities Physics Alliance, Institute for Astronomy, University of Edinburgh, Royal Observatory, Blackford Hill, Edinburgh, EH9 3HJ, UK
+      \and
+      Centre for Exoplanet Science, University of Edinburgh, Edinburgh, EH9 3HJ, UK
+}
+   \date{Received \today; accepted XXXX}
+
+ 
+
+%\abstract{}{}{}{}{} 
+% 5 {} token are mandatory
+\input{Chapters/0. Abstract}
+ 
+
+\maketitle
+%
+%-------------------------------------------------------------------
+% \input{Chapters/0. Abstract}
+\input{Chapters/1. Introduction}
+\input{Chapters/2. Method}
+\input{Chapters/3.1 Analysis 1981}
+\input{Chapters/3.2 Analysis CPD}
+\input{Chapters/4. Conclusion}
+
+
+\section{Source code}
+We are committed to open science and have made the data,
+reduction scripts, and plots in this paper available on an open-source basis\footnote{Available at \url{https://github.com/Valerie-B/Beta-pic-Hill-Sphere}}. All code is provided under a Berkeley Software
+Distribution (BSD) 2-Clause ‘Simplified’ license.
+
+\begin{acknowledgements}
+      Part of this work was supported by the German
+      \emph{Deut\-sche For\-schungs\-ge\-mein\-schaft, DFG\/} project
+      number Ts~17/2--1.
+\end{acknowledgements}
+
+
+\bibliographystyle{aa}
+\bibliography{bib.bib}
+
+\input{Chapters/5. Appendix}
+\end{document}
+%

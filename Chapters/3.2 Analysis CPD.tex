@@ -1,0 +1,276 @@
+\subsection{The circumplanetary disk}\label{sec:method_CPD}
+The circumplanetary disk model probes the environment within the Hill radius to determine possible disk radii, disk orientation, and the upper mass limit.
+% The Hill sphere transit of \pic c will allow us to probe its circumplanetary disk (CPD) following the model in \cite{Kenworthy_2021}.
+%
+To understand the assumptions made for the model, the temperature of the dust is computed by 
+%
+% \subsubsection{Dust properties}
+% The temperature of the dust is computed by 
+\begin{equation}
+    T_g = \sqrt{\frac{R}{2D}}T,
+\end{equation}
+With $R$ the radius of the object,$T$ the temperature and $D$ the distance \citep{Chen_2001}.  
+%
+The thermal stellar temperature at the edge of the Hill radius is 352K using parameters from table\ref{tab:orbitize_param} and the eccentricity of its orbit (D = a[1-e]-$r_{\text{Hill}}$).  
+%
+The thermal emission of the planet is expected to drop significantly at larger radii, therefore its temperature of 120K is derived at 0.1$r_{\text{Hill}}$.
+%
+The stellar radiation dominates and as ices sublimate at 352K, therefore we assume that silicates dominate with a density of $\rho_g =\text{2.5 g/cm}^3$ \citep{Chen_2001,Li_1997}.  
+%
+We furthermore say that the primordial disk material from \pic has likely been dispersed, resulting in a low abundance of gas.  %
+Collisions with objects have replenished some of the gas, resulting in an abundance of small grains dominating the mass function \citep{Kennedy_2011,Dohnanyi_1969} and have a distribution estimated by 
+%
+\begin{equation}
+    D_{\text{min}} = 33 \left(\frac{r_{\text{\text{CPD}}}}{r_{\text{Hill}}}\right)^{1/2}  \mu \text{m},
+    \label{eq:Mass}
+\end{equation}
+Where values of table \ref{tab:orbitize_param} and $\eta = r_{\text{CPD}}/r_{\text{Hill}}$ were inserted in equation 9 of \cite{Kennedy_2011}.
+%
+From here, a minimum grain size of 27 $\mu m$ is found using the assumption that the dust is concentrated at the area mean weighted planetocentric distance of 0.7 $r_{\text{CPD}}$.
+%
+This is of similar order to the grain size of \pic b and a couple of orders larger than the blow out grain size \citep{Kenworthy_2021}, therefore the presence of dust in the circumplanetary disk is possible. 
+%
+% \subsubsection{Circumplanetary disk model}
+% The circumplanetary disk model probes the environment within the Hill radius to determine possible disk radii, disk orientation, and the upper mass limit. 
+%
+The circumplanetary disk model requires the grain parameter as one of the input parameters in addition to the photometric data and returns the optical depth given a grid of inclinations and tilts for the given disk radius, where the upper limit of the optical depth is used to compute the upper mass limit. 
+%
+The model approximates the disk as a homogenous slab, where the height is much smaller than the radius of the disk $r_{\text{CPD}}$. 
+%
+Furthermore it assumes an optically thin slab to determine the optical depth,
+%
+\begin{equation} 
+\tau = \frac{1-\text{I}/\text{I}_0}{\text{sin}(\theta)}.
+\end{equation} 
+
+
+%
+Where $I_0$ the attenuated star flux and $I$ the observed star flux is. 
+%
+The optical depth $\tau$ in addition to $r_{\text{CPD}},i,\phi,,\text{t}_b$ and $t$ are used to compute the light curve  $\text{I(t)}=f(r_{\text{CPD}},\tau,i,\phi,\text{t}_b$,t) by inserting a transit when $r \leq r_{\text{CPD}}$. 
+%
+A grid of inclinations $i$ and tilts $\phi$ are tested to maximise $\chi^2$, as  \pic c's obliquity is unknown and the obliquity of planets are unconstrained to their orbital plane \citep{Laskar_1993, Kenworthy_2021}.  
+%
+$t_b$ is the midpoint of the transit when the star passes behind the CPD at a height b above the planet.
+%
+The impact parameter b is a fraction of the $r_{\text{Hill}}$ and depends on the mass of the planet, as well as the orbital parameters.  
+%An inclination of 90\textdegree  \ correlates to a planet transiting the star, however as we do not observe the system edge-on, the planet misses the star.  
+%
+Since \pic b and c have roughly the same masses and inclinations \citep{Kenworthy_2021}, the impact parameter is assumed to be the same (b=0.1).  
+%
+However, it is worth emphasising that the impact parameter is not well constrained and could be off by <10$\%$\citep[e.g.][]{Wang_2016,Lagrange_2019,Nielsen_2020}.  
+%
+Lastly, the truncation of the CPD disk $r_{\text{CPD}}$ can depend on the tilt of the CPD.
+%
+For a coplanar CPD, truncation happens at 0.4 $r_{\text{Hill}}$ when the tidal forces are too strong \citep{Martin_2011}.  
+%
+For non coplanar CPD, truncation can occur at different Hill radii.  
+%
+Since the orientation of the CPD is not known, the two most stable orbits are at 0.3 and 0.6 $r_{\text{Hill}}$ \citep{Lubow_2015, Miranda_2015}. 
+%
+The former is a disk in prograde motion, whereas the latter is in retrograde motion.  
+%
+The data for the primary transits (MJD 58210 \& MJD 59413)  from each instrument is input into the model to determine $\tau$ within the inclination and tilt grid space and its $\chi^2$. 
+%
+Once the upper tau limit is found, the total mass of the dust can be computed using, 
+%
+\begin{equation}
+    M_{\text{CPD}} = \frac{4 \tau a \rho}{3} \pi r_{\text{CPD}},
+    \label{eq:mass_limit}
+\end{equation} 
+%
+Where the fraction represents the surface density $\sigma_{\text{CPD}} = \tau / \kappa$ with an opacity of $\kappa = 3/(4 \rho a)$.  
+%
+
+
+
+\subsubsection{Sensitivity of the CPD model}
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/Photometry/sensitivity_CPD_mock_data2.pdf}
+    \caption{The sensitivity of the CPD model from \citet{Kenworthy_2021} at different offsets $\Delta t$ using artificial data. The upper panel shows the model's output. The red dot is the orientation of the artificial data, corresponding to the upper limit of the optical depth at $\Delta t$ of zero. The lower panel shows the artificial data with the transit at zero offset marked in a purple box and the current transit offset in a blue box. The maximum uncertainty is based on the uncertainty of the \pic c transit ($\pm$ 40 days at MJD 58210. The accuracy of the output degrades rapidly with $\Delta t$. After 3 days the initial disk orientation could not be retrieved, thus the model is sensitive to the midpoint of the transit.}
+    \label{fig:model_timestamps}
+\end{figure*}  
+
+The midpoints of the Hill sphere transits have uncertainties up to 42 days at MJD 58210, therefore understanding the sensitivity of the CPD model is crucial.
+%
+The artificial data from \citet{Kenworthy_2021} was used to model a disk with a radius of 0.4 $r_{\text{Hill}}$, an inclination of 20\textdegree \ and a tilt of 50 \textdegree \ with $\tau$ =0.1.  
+%
+The top left of figure \ref{fig:model_timestamps} shows the results of minimising the optical depth using $\chi^2$ and shows two partial high optical depth paths intersecting at the best fit disk orientation, confirming the model can detect the tilt and inclination of the disk.   
+%
+The artificial disk was modified to have offsets of [0,3,5,10,20,40] days to encompass all orders of uncertainty among the primary transits. 
+%
+Figure \ref{fig:model_timestamps} shows the optical depths in the upper panel of each plot with a red dot marking the disk's parameters and the lower panel showing the artificial photometric data. 
+%
+In blue the transit with offset is highlighted and in purple the transit time at zero offset. 
+%
+The model is very sensitive to the given midpoint of the transit and three days is enough for the model to yield inconclusive results.  
+%
+After 10 days, the grid is uniform, and at 40 days, no disk is seen.  
+%
+Thus, the large uncertainties of the Hill sphere transits are a large obstacle in applying the model.
+
+
+\subsubsection{Analysis of the CPD}
+
+
+\begin{figure*}[!htb]
+\centering
+\begin{subfigure}[b]{0.9\textwidth}
+   \includegraphics[width=1\linewidth]{Figures/Photometry/58210.0_diskfit_3datasets_taumass_030.0.pdf}
+  % \caption{}
+   \label{fig:58210diskfit_3datasets_taumass_030}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.9\textwidth}
+   \includegraphics[width=1\linewidth]{Figures/Photometry/58210.0_diskfit_3datasets_taumass_060.0.pdf}
+%   \caption{}
+   \label{fig:58210diskfit_3datasets_taumass_060}
+\end{subfigure}
+
+\caption{The optical depth (upper panel) and SNR for the Hill sphere transit at MJD 58210 and a circumplanetary radius of 0.3$r_{\text{Hill}}$ (upper plots) and 0.6$r_{\text{Hill}}$ (lower plots). ASTEP, bRing and BRITE have varying coverage (figure \ref{fig:photometric_transits}) with no compelling evidence for a circumplanetary disk orientation. The results are both radii are similar with bRing having the highest SNR, however negative optical depth values. Negative values indicate absorption. Assuming the CPD has dust, ASTEP and BRITE have low SNR with a preference for tilts larger than 60\textdegree and inclinations lower than 30\textdegree.  }
+\label{fig:58210diskfit_3datasets_taumass}
+\end{figure*}
+
+% The photometric data from bRing, BRITE and ASTEP were used for each primary transit to test different tilts and inclinations given a CPD radius and a Hill radius of 0.3 au.  
+%
+Figure \ref{fig:58210diskfit_3datasets_taumass} shows the optical depths at the two most stable CPD radii, namely 0.3 and 0.6$r_{\text{Hill}}$, for the first primary transit at MJD 58210.
+%
+The upper panels show the optical depths and the lower panels the corresponding SNR.
+%
+Despite the primary transit having the most coverage, it has the largest uncertainty for its midpoint.
+%
+Among all the instruments and different CPD radii, no single upper $\tau$ limit can be found, however inclinations less than 30\textdegree and tilts larger than 60\textdegree are more preferred. 
+%
+ASTEP and BRITE are the least constrained because they have less coverage and lower SNR.
+%
+A high SNR is expected to correspond to high optical depths, however the opposite is seen for bRing. 
+%
+% As a CPD transit, its dust obscures a part of the star, increasing the optical depth.  
+%
+It surprisingly shows negative optical depths corresponding with dust being simulated and emitting light.
+%
+The cause for the negative optical depths is unclear and it is not seen in figure \ref{fig:photometric_transits} nor does it align with the results of ASTEP and BRITE.
+%
+As a result, the poor SNR among BRITE and ASTEP, the negative optical depths for bRing and the sensitivity of the model for a given midpoint of the transits leaves us with too many uncertainties to constrain the tilts and inclinations at MJD 58210.
+
+\begin{figure}[t] 
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Photometry/59413.0_diskfit_3datasets_taumass_030.0.pdf}
+    \caption{The optical depth (upper panel) and SNR for the Hill sphere transit at MJD 59413 and a circumplanetary radius of 0.3$r_{\text{Hill}}$ (left plots) and 0.6$r_{\text{Hill}}$ (right plots). Only bRing has coverage (figure \ref{fig:photometric_transits}) with no compelling evidence for a circumplanetary disk orientation. At 0.6 $r_{\text{Hill}}$, the highest SNR corresponds with the highest optical depth, however not well constrained. Similarly, at 0.3$r_{\text{Hill}}$.}
+    \label{fig:59413diskfit_3datasets_taumass}
+\end{figure}  
+
+%
+The second primary transit at MJD 59413 shown in figure \ref{fig:59413diskfit_3datasets_taumass} is only covered by bRing. %in the Appendix \ref{sec:appendix}% is only covered by bRing data.
+%
+The midpoint of the transit is better constrained than at MJD 58210 and no negative $\tau$ values are seen.
+%
+Furthermore, the upper limits of $\tau$ do correspond with the highest SNR and for 0.6 $r_{\text{Hill}}$ a range of tilts and inclinations are possible, with the most likely ones among the elliptical path with a $\tau$ of $\sim$ 0.024.
+%
+This could be due to the slight decrease in flux seen at $\sim$ MJD 59410 (figure \ref{fig:photometric_transits}).
+%
+However, the upper $\tau$ limits do not correspond within the same inclination and tilt space between the two transits
+%
+% Unfortunately, there is great inconsistency among the two transits and no ASTEP or BRITE data were obtained at MJD 59413 to compare the different instruments.
+%
+Unfortunately, the most likely disk orientations at MJD 58210 do not correspond MJD 59413.
+%
+The varying results among the different instruments at different times and CPD radii do not yield compelling evidence to constrain the inclination, tilt or CPD radius.
+%
+However, the upper mass limits can still be computed.
+
+\begin{table*}[t!] %[!htb]
+    \caption{The mean grain size $a$ and upper mass limit $M_{\text{CPD}}$ for the primary transits at different CPD radii. The MJD 58210 transit has data from ASTEP, BRITE and bRing, however their SNR are low and bRing has negative $\tau$ values. The MJD 59413 transit only has coverage by bRing with positive optical depth values. Therefore the upper mass limit is not well constrained.  }
+    \begin{subtable}{.5\linewidth}
+      \centering
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Transit at MJD 58210} \\
+ \hline
+& 0.3 $r_{\text{Hill}}$ & 0.6 $r_{\text{Hill}}$\\
+ \hline
+a  [$\mu m$]  & 18.1    &25.6\\
+$M_{\text{CPD}}$ [g]&   $3.41x10^{20}$  & $9.15x10^{20}$ \\
+ \hline
+\end{tabular}
+    \end{subtable}%
+    \begin{subtable}{.5\linewidth}
+      \centering
+        \begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Transit at MJD 59413} \\
+ \hline
+& 0.3 $r_{\text{Hill}}$ & 0.6 $r_{\text{Hill}}$\\
+ \hline
+a [$\mu m$]  & 25.6    & 25.6\\
+$M_{\text{CPD}}$ [g]&   $8.07x10^{20}$  & $5.11x10^{21}$ \\
+ \hline
+\end{tabular}
+    \end{subtable} 
+    \label{tab:uppermass}
+\end{table*} 
+
+%
+Figure \ref{fig:taumass_58210} and \ref{fig:taumass_59413} in the Appendix \ref{sec:appendix} show the upper mass limit for MJD 58210 and 59413, respectively, using \ref{eq:mass_limit}.
+%
+Table \ref{tab:uppermass} shows the mean dust size and upper mass limit constrained by the combination of the upper limits of $\tau$ among the different instruments.
+%
+Thus, the upper mass limit at MJD 58210 was computed for inclinations less than 60\textdegree and tilts larger than 60\textdegree, resulting in a dust grain size of 18.1 and 25.6 $\mu$m, for 0.3 and 0.6 $r_{\text{Hill}}$ respectively. 
+%
+A larger grain size and a larger disk results in more mass. 
+%
+Since the transit at MJD 59413 only has coverage from bRing, no constraints on the disk orientation were in place to determine the upper mass limit. 
+%
+The grain sizes are 25.6 $\mu$m for both CPD radii, while the masses are slightly larger for 0.6$r_{\text{Hill}}$ (table\ref{tab:uppermass}).  
+%
+An upper mass limit of the order $10^{21}$ can be taken from the results, however these results are poorly constrained.
+%
+
+
+
+%different methods to improve
+There are a few methods to improve the results.  
+%
+The model is too sensitive to the midpoint of the transit, therefore implementing a Markov chain Monte Carlo (MCMC) method to determine the best optical depth within a range of timestamps can improve the reliability of the results.  
+%
+\citet{Kamp_2022} used an \verb|emcee| \citep{Foreman_Mackey_2013} and a modified version of a \verb|pyPplusS| package \citep{Rein_2019}.  
+%
+The package calculates the light curve for an oblate or ringed exoplanet orbiting a star.  
+%
+Together, it could yield an alternative method to explore the CPD's possible inclinations and tilts.  
+%
+Another possible method uses Beyond Circular Eclipsers (BeyonCE) light curve modelling \citep{Dam_2024}.  
+%
+This module uses photometric data to reduce the parameter space of circumsecondary disc systems. 
+
+%
+Furthermore, increasing the number of observations of the Hill sphere transit and improving the orbital constraints of the midpoint of the transit, will improve the results.  
+%
+More Hill sphere transits can be compared, constraining the inclination and tilt to a higher degree.  
+%
+In addition, obtaining a high SNR for multiple instruments simultaneously. 
+ 
+%
+Moreover, multiple assumptions have been made. Some of these assumptions greatly influence the parameters of the CPD model.  
+%
+The disk radius $r_{\text{CPD}}$ was taken to be either 0.3$r_{\text{Hill}}$ or 0.6$r_{\text{Hill}}$.  
+%
+However, it is possible the disk does not extend to 0.3$r_{\text{Hill}}$.  
+%
+Furthermore, the impact parameter b can be off by $10\%$.  
+%
+The impact parameter is hard to determine without good constraints on the orbital parameters of \pic c.  
+%
+As a result, it could be possible that the disk has a low obliquity and does not transit the star.  
+%
+The grain size $D_{min}$ used to calculate the upper limit of the CPD mass assumes a homogeneous distribution and constant grain size in the disk.  
+%
+The grain size is an approximation derived from the area mean weighted planetocentric distance, however it is possible no dust is within the Hill sphere or not enough to be observed.  
+%
+On the other hand, the dust could also have been condensed, spawning an exomoons, which are undetectable with our current instruments.
+%
+Fortunately, a new instrument called PLATO \citep{PLATO_2025} is about to launch whose goal is to observe transiting exoplanets, exomoons and rings.
+%
+
